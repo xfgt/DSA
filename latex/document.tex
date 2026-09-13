@@ -1,0 +1,1391 @@
+% entry point default font size 12 px
+\documentclass[12pt, a4paper]{article}
+
+% bulgarian encoding
+\usepackage[utf8]{inputenc}
+\usepackage[bulgarian]{babel}
+
+% start page centering
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+% default page dimentions
+\usepackage
+[ 
+	hmargin={1cm, 1.5cm}, 
+	height=10in, 
+	top=1.5cm
+]
+{geometry}
+
+
+% section redefinition
+\usepackage{titlesec}
+\makeatletter
+\def\@seccntformat#1{%
+	\expandafter\ifx\csname c@#1\endcsname\c@section\else
+	\csname the#1\endcsname\quad
+	\fi}
+\makeatother
+
+
+
+
+% links
+\usepackage{hyperref}
+
+% images
+\usepackage{graphicx, float, wrapfig}
+\graphicspath{ {D:/Documents/Personel/University/main/algorithms/ZASHTITA/} }
+
+% math
+\usepackage{amsmath, amssymb, amsthm}
+
+% matrix vertical line Gauss
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+
+% right text alignment
+\usepackage{ragged2e}
+
+% colors 
+\usepackage{xcolor}
+\titleformat*{\subsection}{\bfseries\color{blue!50!black}}
+
+% code
+\usepackage{listings}
+% code style
+\lstset{ 
+	language=c++,
+	basicstyle=\small\ttfamily,
+	numbers=left,
+	numberstyle=\tiny,
+	frame=tb,
+	tabsize=4,
+	columns=fixed,
+	showstringspaces=false,
+	showtabs=false,
+	keepspaces,
+	commentstyle=\color{red},
+	keywordstyle=\color{blue}
+}
+
+
+
+\author{Теодор Мангъров\\\textbf{(F113621)}}
+\title{Домашни работи\\по\\``Увод в алгоритмите и програмирането''}
+\date{21 май, 2024г.}
+
+\begin{document}
+	\begin{titlingpage}
+		\maketitle
+	\end{titlingpage}
+	
+	\section{ДОМАШНО 1}
+	\text{{\color{blue!50!black}\normalfont\footnotesize{
+				Краен срок: \textit{сряда, 6 март 2024, 23:50 PM
+			}}}}\\
+	\text{{\color{green!50!black}\normalfont\footnotesize{
+				Предаденo на: \textit{
+					сряда, 28 февруари 2024, 18:00 PM
+				}}}}
+		\begin{enumerate}
+			\item Препишете определението за алгоритъм от лекцията. 		
+			Опитайте се да го разберете добре. Ще обсъждаме всяко свойство на лекциите.
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.9\textwidth]{tex/images/HW1/HW1_1}
+						\hspace{1cm}
+					\end{figure}
+					
+				}
+			\item Съставете схеми на Базовите Елементи на Управление с техните наименавония.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.9\textwidth]{tex/images/HW1/HW1_2}
+					\hspace{1cm}
+				\end{figure}
+			}
+			\item Съставете схемата на управление за алгоритъма за RAM машина от лекцията (събиране на две цели положителни числа) и съответния програмен текста на прото-асемблер.
+			\begin{enumerate}
+				\item Обърнете внимание на това как решаването на задачата става чрез въвеждане на дъпълнителни променливи в паметта за данните, в случая - брояч.
+				\item Обърнете внимение на двата базови елемента на управление - безусловен и условен преход и как те се използват, за да се програмира повторение (цикъл).
+			\end{enumerate}
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.9\textwidth]{tex/images/HW1/HW1_3}
+					\textit{Забележка: Схемата е с презумпцията, че ``B'' и ``K'' вече съществуват в паметта}
+					\hspace{1cm}
+				\end{figure}
+				
+			}
+			\item Съставете схема на управление за алгоритъма на Евклид, така, както той е описан в оригинала (Евклид). Това означава, че трябва да ползвате условни и безусловни преходи, за да организирате управлението. Приемете, че машината може да изпълнява следните операции над цели числа:
+			\begin{enumerate}
+				\item 
+				Намиране на остатък от целочислено делене (А на В) :  MOD (A,B)
+				\item 
+				Присвояване на стойност, например С = MOD (A,B)
+				\item 
+				Условен преход, като условието е дали Нещо = 0
+			\end{enumerate}
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.7\textwidth]{tex/images/HW1/HW1_4–2}
+					\caption{алгоритъм}
+					\hspace{1cm}
+				\end{figure}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.6\textwidth]{tex/images/HW1/HW1_4_1}
+					\caption{опорна схема}
+					\hspace{1cm}
+				\end{figure}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.8\textwidth]{tex/images/HW1/HW1_B}
+					\caption{опорна схема moodle}
+					\hspace{1cm}
+				\end{figure}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.8\textwidth, height=1.3\columnwidth]{tex/images/HW1/HW1_A}
+					\caption{опорна схема moodle}
+					\hspace{1cm}
+				\end{figure}
+			}
+		\end{enumerate}
+	\newpage
+	\section{ДОМАШНО 2}
+	\text{{\color{blue!50!black}\normalfont\footnotesize{Краен срок: \textit{сряда, 13 март 2024, 00:00 AM}}}}\\
+	\text{{\color{green!50!black}\normalfont\footnotesize{Предаденo на: \textit{неделя, 10 март 2024, 17:55 PM}}}}
+		\begin{enumerate}
+			\item Съставете програма за алгоритъма на Евклид, в която няма оператор за цикъл. Ползвайте схемата от предходното домашно. Там няма рекурсия! Предайте снимка на екран с кода и с изхода от изпълнение. 
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\lstinputlisting[language=c++]{../EVERYTHING/hw2/hw/alg_eucledian/ucl_alg.cpp}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.7\textwidth]{tex/images/HW2/HW2_1}
+					\caption{изход от изпълнение}
+					\hspace{1cm}
+				\end{figure}
+				
+			}
+			\newpage
+			\item Като се базирате на основните елементи на управление, дадени в презентациите към тази тема, съставете петте схеми на основните Конструкти на Управление - Клоновете (двуклон и байпас) и на Повторенияте (цикли с предусловие, със следусловие и по брояч). Може на ръка, може да копирате схемите, както ви е по-удобно. Тези конструкти са изучавани в уводните курсове по програмиране, сега задачата е да видите мястото на условните и безусловни преходи като елементи на управление. Прегледайте анимациите към тази тема, за да си припомните изученото по програмиране. Успоредно на схемите, маркирайте програмни оператори на познат език, както е показано в презентациите и тук:\\
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=\textwidth]{tex/images/cik_vgr_broqch}
+				\caption{Цикъл с вграден брояч}
+				\hspace{1cm}
+			\end{figure}
+			Схемите заемат около една страница и половина. Помислете над тях. Ще обсъждаме проблеми, ако се появят, в час.\newpage
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\begin{figure}[H]
+					\centering
+					\setlength{\fboxsep}{0pt}%
+					\setlength{\fboxrule}{1pt}%
+					\fbox{\includegraphics[width=0.35\textwidth]{../EVERYTHING/hw2/hw/bypass-if}}
+					\includegraphics[width=0.5\textwidth]{../EVERYTHING/hw2/hw/if-else}
+					\includegraphics[width=0.5\textwidth]{../EVERYTHING/hw2/hw/for-loop}
+					\fbox{\includegraphics[width=0.4\textwidth]{../EVERYTHING/hw2/hw/do-while}
+					\hspace{1cm}}
+				\end{figure}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.4\textwidth]{../EVERYTHING/hw2/hw/while}
+					\hspace{1cm}
+				\end{figure}
+				
+			}
+			\item Съставете схемата на управление за събиране на две числа (зададени с два вектора) в позиционна бройна система (използване на операциите с цели числа, по-точно - делене с остатък). Схемата е дадена в празентация към тази тема, а алгоритъмът е подробно разработван в час. Встрани от схемата напишете прогремен текст на предпочетан от вас език.\newpage
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\lstinputlisting[language=c++]{../EVERYTHING/hw2/hw/sumTwoNums/sumNums.cpp}
+				
+			}\newpage
+			\item Реализирайте съставената по предходната тачка програма и проверете дали работи за събиране на числа (представени като вектори) в десетичен код. Предайте снимка на екран с кода и изход.
+			
+			Ако сте любопитни, проверете дали това работи и за числа, кодирани при база шестдесет, както в първата известна система за кодиране – тази на Шумерите \url{https://en.wikipedia.org/wiki/Sexagesimal.}\newpage
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\lstinputlisting[language=c++]{../EVERYTHING/hw2/hw/countSystemSum/countSystemSumNums.cpp}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.5\textwidth]{../EVERYTHING/hw2/hw/countSystemSum/out3}
+					\caption{изход от изпълнение}
+					\hspace{1cm}
+				\end{figure}
+			}
+	\end{enumerate}
+	\newpage
+	\section{ДОМАШНО 3}
+	\text{{\color{blue!50!black}\normalfont\footnotesize{Краен срок: \textit{вторник, 19 март 2024, 23:59 PM }}}}\\
+	\text{{\color{green!50!black}\normalfont\footnotesize{Предаденo на: \textit{четвъртък, 14 март 2024, 15:44 PM}}}}
+		\begin{enumerate}
+			\item Отговорете писмено на следните въпроси:
+			\begin{enumerate}
+					\item	Колко на брой са остатъците по модул 7;
+					\item	Колко е 13 по модул 11;
+					\item 	Колко е 7 по модул 10;
+					\item	Колко е 9 по модул 16.
+			\end{enumerate}
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=\textwidth]{../EVERYTHING/hw3/hw/1}
+					
+					\hspace{1cm}
+				\end{figure}
+				
+			}\newpage
+			\item Долу е дадена схемата на управление на алгоритъма за събиране в позиционна бройна система, както е обяснена и трасирана с пример в час. Направете схемата на ръка и встрани, успоредно на нея, съставете съответен програмен текст.
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.9\textwidth]{tex/images/mod_div}
+				\caption{Множество на целите числа, цикли по брояч. Натрупване на суми и произведения}
+				\hspace{1cm}
+			\end{figure}\newpage
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=1.1\textwidth, angle=90]{../EVERYTHING/hw3/hw/2}
+					\hspace{1cm}
+				\end{figure}\newpage
+				\lstinputlisting[language=c++]{../EVERYTHING/hw2/hw/countSystemSum/countSystemSumNums.cpp}
+				
+			}\newpage
+			\item \textbf{Препълване на битовете за цяло число.}\\
+			Съставете:
+				\begin{enumerate}
+					\item Схема на управление
+					\subsection{ОТГОВОР}
+					{\color{blue!50!black}
+						\begin{figure}[H]
+							\centering
+							\includegraphics[width=0.8\textwidth]{../EVERYTHING/hw3/hw/3_scheme}
+							
+							\hspace{1cm}
+						\end{figure}
+						
+					}\newpage
+					\item Успоредно на нея - програма за реализиране на цикъл, като ползвате единствено \textbf{условен преход и безусловен преход. }Това в езиците, които ползвате, става например с If условие, тяло на Ifа при Да, и go to етикета на Ifа.\\
+					Вътре в тялото на цикъла увеличавайте с единица една променлива i - цяло число, като началната й стойност зададете да е едно. Условието на Ifа да е такова, че когато променливата i стане отрицателна, да се излиза от цикъла и да се извежда съобщение – „олеле, препълних“, като се изведе на екран и стойността на i. Пуснете програвата и приложете разпечатка на програмния текст и на изхода.
+					\subsection{ОТГОВОР}
+					{\color{blue!50!black}
+						\lstinputlisting[language=c++]{../EVERYTHING/hw3/hw/prepulnih.cpp}
+						\begin{figure}[H]
+							\centering
+							\includegraphics[width=0.7\textwidth]{../EVERYTHING/hw3/hw/output}
+							\caption{изход от изпълнение}
+							\hspace{1cm}
+						\end{figure}
+					}\newpage
+				\end{enumerate} 
+		\end{enumerate}
+	\newpage
+	\section{ДОМАШНО 4}
+	\text{{\color{blue!50!black}\normalfont\footnotesize{Краен срок: \textit{четвъртък, 28 март 2024, 00:00 AM }}}}\\
+	\text{{\color{green!50!black}\normalfont\footnotesize{Предаденo на: \textit{неделя, 24 март 2024, 11:37 AM}}}}
+		\begin{enumerate}
+			\item 
+			Напишете формулата на Гаус за сумата на първите n естествене числа. Под нея разпишете проверка - дали формулата е вярна за сумата на първите n естествени числа,  когато n е последната цифра от факултетния ви номер. Ако номерът ви завършва с нула, приемете $n=6$.
+			
+			\textit{Например така:}
+			\begin{equation}
+				\begin{split}
+					F1081174\\
+					n = 4\\
+					1 + 2 + 3 + 4 = 10
+				\end{split}
+			\end{equation}
+			\textit{По формулата на Гаус за сумата на първите n естествени числа, при  $n = 4$:}
+			\begin{equation}
+				\sum_{n=1}^{4}i=\frac{(4+1)*4}{2}=\frac{5*4}{2} = 10
+			\end{equation}
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\lstinputlisting[language=c++]{../EVERYTHING/hw4/hw4/1_GaussFNumber/main.cpp}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.4\textwidth]{../EVERYTHING/hw4/hw4/schemes/output}
+					\caption{изход от изпълнение}
+					\hspace{1cm}
+				\end{figure}
+			}
+			\textit{Заместване на стойностите във формулата на К. Ф. Гаус}
+			\begin{equation}
+				\begin{split}
+				\sum_{i=1}^{n}x = \sum_{i=1}^{1} \frac{(i + 1) * i}{2} =  \frac{(1 + 1) * 1}{2} = \frac{2 * 1}{2} = \frac{2}{2} = 1
+				\end{split}
+			\end{equation}\newpage
+			\item
+			Съставете трите схеми на управлине, успоредно на тях - програмния текст на познат за вас език и пуснете на машина една от програмите за натрупване на следните три суми:
+			
+			
+			\begin{equation}\sum_{i=1}^{n}i^2\end{equation}
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\lstinputlisting[language=c++]{../EVERYTHING/hw4/hw4/2A/main.cpp}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.45\textwidth, height=0.57\columnwidth]{../EVERYTHING/hw4/hw4/schemes/2a}
+					\hspace{1cm}
+				\end{figure}
+			}\newpage
+			\begin{equation}\sum_{i=2}^{n}(i^2 - 2i)\end{equation}
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\lstinputlisting[language=c++]{../EVERYTHING/hw4/hw4/2B/main.cpp}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.45\textwidth, height=0.666\columnwidth]{../EVERYTHING/hw4/hw4/schemes/2b}
+					\hspace{1cm}
+				\end{figure}
+			}\newpage
+			\begin{equation}\sum_{i=3}^{n}(i^3 - 2i)\end{equation}
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\lstinputlisting[language=c++]{../EVERYTHING/hw4/hw4/2C/main.cpp}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.45\textwidth, height=0.65\columnwidth]{../EVERYTHING/hw4/hw4/schemes/2c}
+					\hspace{1cm}
+				\end{figure}
+			}\newpage
+					
+					
+					
+				
+			
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.9\textwidth]{tex/images/counter}
+				\caption{Модел}
+				\hspace{1cm}
+			\end{figure}
+			
+			Напомняме – $a_i$  се изразява с $i$, т.е. с поредния номер на член на сумата.\\То е, например, $i*i$.\newpage
+			
+			\item Съставете програма зя пресмятане на \textbf{факториел} на цяло положително число чрез натрупване на произведение, т.е. с цикъл по брояч. Пуснете я на машина и проверете факториел на кое число довежда вече до препълване на машинното представяне на целити числа.\\\\
+			\textbf{Алтернативни редове.}\\ 
+			Прегледайте материала от лекцията и проследете линковете за функциите $\sin$ и $\cos$. Ново за вас е само свързаното с представяне на функция в ред на Тейлор и Маклорен, т.е. пресмятане на стойността на функцията посредством нейните производни. Без да се съсредоточавате над формулите, сега запомнете само, че стойностите на тези (и много други) функции магат да се представят като Сума на ред.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\lstinputlisting[language=c++]{../EVERYTHING/hw4/hw4/3_Factoriel/main.cpp}
+				
+			}\newpage
+			\item 
+			Съставете схемата на управление (има я в пепете) и успоредно на нея – програмата за пресмятане на $\pi$ с алтернативен ред, като Сумата се пресмята 10 000 пъти, по брояч. Реализирайте програмата с разпечатка на получаваното за $\pi$ на всеки 100 преминавания през цикъла.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\lstinputlisting[language=c++]{../EVERYTHING/hw4/hw4/calc_Pi/main.cpp}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.6\textwidth]{../EVERYTHING/hw4/hw4/schemes/calc_pi}
+					\caption{опорна схема}
+					\hspace{1cm}
+				\end{figure}
+			}\newpage
+		\end{enumerate}
+		
+	\newpage
+	
+	\section{ДОМАШНО 5}
+	\text{{\color{blue!50!black}\normalfont\footnotesize{
+				Краен срок: \textit{
+					сряда, 3 април 2024, 09:00 AM
+	}}}}\\
+	\text{{\color{green!50!black}\normalfont\footnotesize{
+				Предаденo на: \textit{
+					понеделник, 1 април 2024, 17:16 PM
+	}}}}
+		\begin{enumerate}
+			\item Съставете \textit{\textbf{схемата на управление}} (има я в пепете) и успоредно на нея – програмата за пресмятане на $\pi$ с алтернативен ред.  Съставете схемата на управление по ДВА начина:
+			
+			\begin{itemize}
+				\item Сумата се пресмята 10 000 пъти, по брояч – от миналото домашно 2024.
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\lstinputlisting[language=c++]{../EVERYTHING/hw4/hw4/calc_Pi/main.cpp}
+										
+				}\newpage
+				\item Сумата се пресмята ДОТОГАВА, ДОКАТО разликата между две стойности, получени последователно, се получи по-малка от 0.0001. \textbf{Съставете програма} в съответствие с тази схема.\\
+				Реализирайте програмата по два начина - с използване на вграден езиков оператор за цикъл и с използване на условен и безусловен преход.
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\lstinputlisting[language=c++]{../EVERYTHING/hw5/hw5/11/main.cpp}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.67\textwidth]{../EVERYTHING/hw5/hw5/images/5a}
+						\caption{опорна схема}
+						\hspace{1cm}
+					\end{figure}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.7\textwidth]{../EVERYTHING/hw5/hw5/images/5b}
+						\caption{опорна схема}
+						\hspace{1cm}
+					\end{figure}					
+				}
+				
+			\end{itemize}\newpage
+			
+			\item Да се състави алгоритъм (схемата на управление ) и \textbf{програма} (в съответствие със схемата) за пресмятане \textbf{по два начина} на функцията $\sin(x)$, с итеративен цикъл, както е дадена на семинар (развита в ред на Маклорен).
+			\begin{itemize}
+				\item Първи начин – с пресмянате на факториел (в знаменателя) до получаване на член с отрицателен знаменател 
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\lstinputlisting[language=c++]{../EVERYTHING/hw5/hw5/2/main.cpp}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw5/hw5/images/2-first-way}
+						\caption{45 градуса}
+						\includegraphics[width=0.85\textwidth]{../EVERYTHING/hw5/hw5/images/radianDuckduck}
+						\includegraphics[width=0.8\textwidth]{../EVERYTHING/hw5/hw5/images/sin45Duckduck}
+						\caption{проверяваме получените стойности}
+						
+						\hspace{1cm}
+					\end{figure}					
+				}\newpage
+				\item втори начин – с точност \emph{0.000001} без пресмятане на факториел.
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\lstinputlisting[language=c++]{../EVERYTHING/hw5/hw5/22/main.cpp}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw5/hw5/images/2-second-way-30deg}
+						\caption{30 градуса}
+						\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw5/hw5/images/radian30Duckduck}
+						\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw5/hw5/images/sin30Duckduck}
+						\caption{проверка на получените стойности}
+						\hspace{1cm}
+					\end{figure}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw5/hw5/images/2-second-way-15deg}
+						\caption{15 градуса}
+						\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw5/hw5/images/radian15Duckduck}
+						\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw5/hw5/images/sin15Duckduck}
+						\hspace{1cm}
+					\end{figure}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw5/hw5/images/2-second-way-5deg}
+						\caption{5 градуса}
+						\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw5/hw5/images/radian5Duckduck}
+						\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw5/hw5/images/sin5Duckduck}
+						\hspace{1cm}
+					\end{figure}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw5/hw5/images/2-second-way-1deg}
+						\caption{1 градус}
+						\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw5/hw5/images/radian1Duckduck}
+						\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw5/hw5/images/sin1Duckduck}
+						\hspace{1cm}
+					\end{figure}			
+					\textit{Извод: Когато изпълняваме метода без пресмятане на факториел, губим от точността в изчисленията. Това прави първият начин по-надежден спрямо втория.}		
+				} 
+			\end{itemize}
+			
+			За двата начина съставете код.
+			
+			Обърнете внимание, че аргументът е ъгъл в радиани. Пуснете вход от клавиатура - ъгъл в градуси, който програмата превръща в радиани.
+			
+			
+			За първия начин, проследете до кой член сумата се пресмята без препълване и направете програмата да извежда на екран коментар, когато става препълването.
+			
+			
+			За втория начин пуснете програмата с различни входове – 30 градуса, 15 грядуса, 5 градуса и 1 градус. Поставете в итеративния цикъл брояч и извеждайте стойността на брояча, при която се е достигнала исканата точтост. 
+			
+			
+			Приложете към домашното код и снимки на екран с входа и изхода.
+		\end{enumerate}
+	\newpage
+	\section{ДОМАШНО 6}
+	\text{{\color{blue!50!black}\normalfont\footnotesize{
+				Краен срок: \textit{
+					петък, 12 април 2024, 00:00 AM
+	}}}}\\
+	\text{{\color{green!50!black}\normalfont\footnotesize{
+				Предаденo на: \textit{
+					понеделник, 8 април 2024, 16:07 PM
+	}}}}
+		\begin{enumerate}
+			\item Съставете схема на управление и успоредно на нея – програмен текст на претърсване на масив чрез \textbf{обхождане} на целия масив. Изведете броя проверки “ти хикс ли си” на екран. Пуснете програмата над масив от числа - цифрите на факултетния ви номер (взети като числа), като търсите последователно дали стойностите 1, 2, 3 и 4 се намират вътре или не. Предавате програмен текст, вход и изход – снимка на екран.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\lstinputlisting[language=c++]{../EVERYTHING/hw6/hw6/1/main.cpp}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=\textwidth]{../EVERYTHING/hw6/hw6/screenshots/1zadacha}
+					\hspace{1cm}
+				\end{figure}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.45\textwidth,height=0.5\columnwidth]{../EVERYTHING/hw6/hw6/screenshots/linear_search}
+					\hspace{1cm}
+				\end{figure}
+				
+			}\newpage
+			\item Съставете схема на управление и успоредно на нея – програмен текст на търсене в масив \textbf{дотогава, докато} се намери търсената стойност, при използване на \textbf{„котва“}. Изведете броя проверки “ти хикс ли си” на екран. Пуснете програмата над масив от букви – буквите от фамилното ви име, като търсите последователно дали стойностите а, б, в и г се намират вътре или не. Предавате програмен текст, вход и изход – снимка на екран.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=1.03\textwidth]{../EVERYTHING/hw6/hw6/screenshots/2zadacha}
+					\hspace{1cm}
+				\end{figure}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.45\textwidth,height=0.55\columnwidth]{../EVERYTHING/hw6/hw6/screenshots/kotva_search}
+					\hspace{1cm}
+				\end{figure}
+				
+			}\newpage
+			
+			\item Съставете
+			\begin{enumerate}
+				\item Опорна схема (това значи схема на масив, означени променливи за индекси за начало и край на претърсваната част, среда, местене на индеските - със стрелки);
+				\item схема на управление която да съответства на опорната схема и успоредно на нея – програмен текст на дихотомично претърсване на масив. Материалът е даден подробно с пепете в лекциите. Изведете на екран как се менят стойностите на променливите съхраняващи индексите за начало и край на подмасива, в който търсенето продължава И на броя проверки “ти хикс ли си”. Пуснете програмата над масив от букви и цифри образуван така – факултетният ви номер и фамилното ви име, залепени, като търсите последователно дали стойностите 9, 8, 7 и я, ю, ъ и о се намират вътре или не. Не забравяйте, че методът работи САМО при наредени данни. Наредете ги първо, например на ръка... Предавате програмен текст, вход и изход – снимка на екран.
+			\end{enumerate}\newpage
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=1.03\textwidth]{../EVERYTHING/hw6/hw6/screenshots/3zadacha}
+					\text{}
+					\includegraphics[width=1.03\textwidth]{../EVERYTHING/hw6/hw6/screenshots/3zadacha_negative}
+					\hspace{1cm}
+				\end{figure}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw6/hw6/screenshots/binary_search}
+					\hspace{1cm}
+				\end{figure}
+				
+			}\newpage
+			\item 
+			Време. Напишете тези три програми като три функции за претърсване на масив за дадена стойност: (1. Която претърсва винаги целия масив; 2. Която реализира търсене с котва; 3. Която реализира алгоритъма за дихотомично търсене).
+			
+			За всяка от трите направете следното:
+			- На входа на двете подайте един и същи масив със 100 000 случайно генерирани елемента, а за дихотомичното търсене – числата от 1 до 100 000, наредени възходящо.
+			- измерете времето, което отнема на всяка от функциите да намери 5 стойности измежду тези 100 000 елемента. Търсените 5 стойности се задават от клавиатура и се подават едни и същи към трите функции. Времето за търсене е с много малка стойност и се губи точност при записването ѝ във float/double. Затова повторете 10 пъти в цикъл търсенето на една и съща стойност по всеки от методите и измерете общото за десетте пъти време. Извеждайте в конзолата или записвайте във файл измерените времена, заедно с броя елементи на масива от входа.
+			Повторете същото измерване за 200 000, 300 000 и така до 1 000 000 елемента.
+			
+			Получените серии от стойности за всеки алгоритъм поставете в Excel или друга електронна таблица и изчертайте трите серии на една графика, която показва какво е времето, което отнема на всеки алгоритъм за даден вход. Например така:
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.9\textwidth]{tex/images/tablica_1}
+				\caption{таблица}
+				\hspace{1cm}
+			\end{figure}\newpage
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw6/hw6/screenshots/sheet1}
+					\hspace{1cm}
+				\end{figure}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw6/hw6/screenshots/linear_sheet}
+					\hspace{1cm}
+				\end{figure}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw6/hw6/screenshots/kotva_sheet}
+					\hspace{1cm}
+				\end{figure}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw6/hw6/screenshots/binary_sheet}
+					\hspace{1cm}
+				\end{figure}
+				
+			}\newpage
+		\end{enumerate}
+	\newpage
+
+	\section{ДОМАШНО 7}
+	\text{{\color{blue!50!black}\normalfont\footnotesize{
+				Краен срок: \textit{
+					четвъртък, 18 април 2024, 00:00 AM 
+	}}}}\\
+	\text{{\color{green!50!black}\normalfont\footnotesize{
+				Предаденo на: \textit{
+					събота, 13 април 2024, 17:38 PM
+	}}}}
+		\begin{enumerate}
+			\item Напишете на лист със схема програмата за намиране \textbf{на елемент с минимална стойност} и на неговия индекс, в едномерен масив. Оградете с правоъгълник оператора, който осигурява запазване на индекса на елемента с минимална стойност. Запишете колко сравнения на стойности прави тази програма. Пуснете и предайте програмата с вход и изхода – снимки на екран.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=1.03\textwidth]{../EVERYTHING/hw7/hw7/images/zadacha-1}
+					\hspace{1cm}
+				\end{figure}
+				
+			}\newpage
+			\item Сортиране на един масив в друг масив.
+				\begin{enumerate}
+					\item Опишете с думи, с най-много три изречения, как работи този алгоритъм. Не използвайте думи като Фор или Джей. Използвайте термини като : пъти, обхождане, попълване, следващ, минимална стойност и дезактивиране на изтеглената стойност.
+					\subsection{ОТГОВОР}
+					{\color{blue!50!black}
+						\textit{
+							В отделна структура за цикъл обхождаме n на брой пъти нашия разбъркан масив, за да извлечем максималната стойност от него, заедно с позицията на която се намира. След което я запазваме в променлива, изпълнявайки това във друг блок от два вложени цикъла с еднакви условия за проверка, но с различни променливи за обозначение. Обхождаме същия масив като този път се стремим да извлечем неговата минимална стойност.}\\\\
+						\textit{
+							Установявайки минималната стойност, чрез най-младшия цикъл в дадената структура, тя се попълва във втори празен масив с идентична размерност чрез приемане на стойността за място на втория масив от най-старшия цикъл да бъде равна на намераната досегашна минимална стойност.}\\\\
+						\textit{
+							Позицията на намерената минимална стойност се презаписва с досегашният максимум, следвайки задаването на нов минимум приемащ стойността на максимума.
+						}
+						
+					}
+					\item Напишете с думи какво прави операторът, който позволява да се изтегля всеки път следващата по ред минимална стойност.
+					\subsection{ОТГОВОР}
+					{\color{blue!50!black}
+						\textit{
+							Задачата на оператора за присвояване на стойност в този случай се използва за задаване на нова минимална стойност на масива, имайки предвид че досегашната винаги ще бъде по-малка от сравняващата се поредна на масива.\\\\За да избегнем запълване с еднакви стойности, презаписваме минималната стойност с намерената максимална, за да можем да осъщесвим сравнението на новия минимум в младшата конструкция за цикъл с поредната такава от масива, стигайки до нова минимална стойност.}
+						
+						
+					}
+					\item Запишете колко пъти се изтетля минимална стойност по този алгоритъм, ако масивът е n – местен.
+					\subsection{ОТГОВОР}
+					{\color{blue!50!black}
+						\textit{
+							Изтеглянето на минималната стойност се случва n на брой пъти, където ``n'' е размерът на масива, с който работим.}
+						
+						
+					}
+				\end{enumerate}\newpage
+			\item Напишете на свободните позиции първите четири цифри от факултетния си номер. Това е масиват А, стойностите на който трябва да се появят сортирани в масива В.\\
+			\begin{figure}[H]
+				\centering				
+				\includegraphics[height=0.5\columnwidth]{tex/images/hw7_fig1}
+			
+			\end{figure}
+			На следващата страница е дадена схема на управление и схема за трасиране на алгоритъма за сортирани в друг масив.
+			\begin{enumerate}
+				\item Напишете успоредно на схемата за управление оператори на избран от вас език за програмиране.\newpage
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\lstinputlisting[language=c++]{../EVERYTHING/hw7/hw7/3-tracingFNumber/main.cpp}
+					
+				}\newpage
+				\item На схемата за трасиране - Трасирайте алгоритъма при тези  входни данни. Отбележете със стрелки коя стойност къде отива. Отбележете какви стойности се получават за всяко състояние на масива А до пълното му ... унищожаване..
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.9\textwidth]{tex/images/hw7_fig3}
+						
+						\hspace{1cm}
+					\end{figure}
+				}
+				
+			\end{enumerate}
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.5\textwidth]{tex/images/hw7_fig2}
+				
+				\hspace{1cm}
+			\end{figure}
+			
+			\textit{Забележка – в схемата горе с индекс 1 е отбелязат първият елемент.}\newpage
+			\item Пряка селекция.\\
+			Базирайки се на разгледаното в час, на материалите в Мудъл и като погледнете и разучите Екселския файл наречен Трасиране - Пряка Селекция, трасирайте на ръка, на схемата долу, алгоритъма с входен масив, образуван от факултетния ви номер и шестата цифра на вашето ЕГН.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=1.03\textwidth]{tex/images/hw7_fig4}
+					\caption{Трасиране}
+					\hspace{1cm}
+				\end{figure}
+			}
+			\newpage
+			\item Пряка селекция.\\
+			Първа задача съдържа схема на управление (това вляво) и схема на алгоритмичните преобразувания на метода на пряката селекция (това което попълвате, за да проследите какво прави методът с данните).
+			Като се базирате на схемана на управление, \textbf{напишете програмата}, в точно съответсвие със схемата, за сортиране на масив по метода на пряката селекция.
+			
+			\textbf{Предайте работеща програма}, снимки на екран с вход – какавто е изискван по задача 3 и изход – нарадения масив. Програмата да извежда на екран: масив, номер на обхождането за изтегляне на минимум и броя на сравнения извършени във вътрешния цикъл. Например: 
+			
+			
+			\textit{
+			Състояние 0: 6,8,3,7,4,9\\
+				обхождане 1, сравнения 5\\\\
+				Състояние 1: 3,8,6,7,4,9\\
+				обхождане 2, сравнения 4\\\\
+				Състояние 2: 3,4,6,7,8,9\\
+				обхождане 3, сравнения 3\\\\
+				и така нататък.
+			}
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=1.03\textwidth]{../EVERYTHING/hw7/hw7/images/zadacha-5}
+					
+					
+					\hspace{1cm}
+				\end{figure}
+				
+			}
+			
+			
+			
+		\end{enumerate}		
+	\newpage
+	
+	\section{ДОМАШНО 8}
+	\text{{\color{blue!50!black}\normalfont\footnotesize{
+				Краен срок: \textit{
+					вторник, 14 май 2024, 00:00 AM 
+	}}}}\\
+	\text{{\color{green!50!black}\normalfont\footnotesize{
+				Предаденo на: \textit{
+					неделя, 28 април 2024, 12:57 PM
+	}}}}
+		\begin{enumerate}
+			\item\textbf{Броене. Сложност по време.}\\
+			Запишете формулата на Гаус за сумата на първите n естествени числа, приложете я и разпишете колко сравнения на стойности прави алгоритъма Пряка Селекция. 
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\textit{
+					За масив от 555 елемента, алгоритъмът извършва 153 735 на брой сравнения.
+				}\\
+				\lstinputlisting[language=c++]{../EVERYTHING/hw8/hw8/1/main.cpp}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=\textwidth]{../EVERYTHING/hw8/hw8/images/zad1}
+					\caption{изход от изпълнение}
+					\hspace{1cm}
+				\end{figure}
+				
+			}\newpage
+			\item\textbf{Инверсии.} Съставете масив от цифрите на факултетния си номер и втората цифра от вашето ЕГН. Колко са инверсиите?
+				\begin{enumerate}
+					\item Изобразете масива графично.
+					\item Съставете схемата на преброяване, както е дадена в материала.
+					\item Пребройте инверсиите за ВСЯКА позиция, както е на схемата.
+					Съберете ги.
+				\end{enumerate}\newpage
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\lstinputlisting[language=c++]{../EVERYTHING/hw8/hw8/2/main.cpp}\newpage
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=\textwidth]{../EVERYTHING/hw8/hw8/images/zad2}
+						\caption{изход от изпълнение}
+						\hspace{1cm}
+					\end{figure}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.8\textwidth, height=0.875\columnwidth]{../EVERYTHING/hw8/hw8/images/E_broyachut}
+						\caption{опорна схема на масив [1, 6, 3, 1, 4, 1, 2]}
+						\hspace{1cm}
+					\end{figure}
+					
+				}\newpage
+			\item\textbf{Инверсии.} Съставете сами алгоритъм и програма за преброяване на инверсиите в масив. Колко сравнения прави вашият алгоритъм? 
+			Защо? - обяснете с едно изречение. Обяснете това са думи.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\lstinputlisting[language=c++]{../EVERYTHING/hw8/hw8/3/main.cpp}
+				
+				\textit{
+					Алогитъмът ми изпълнява $\pm$2\% по-малък брой проверки, за да изпълни сортирането.
+					Причината за това се дължи върху основната проверка за направени инверсии. При проверки след обхождане равни на 0, програмата влиза в условието и приключва своето изпълнение.\\\\Така се освобождава от излишни допълнителни проверки на вече наредени елементи.
+					При тест за 1000 случайни елемента между 1 и 100, броят сравнения е 966 за момента на провеждането му;
+					Следващ брой проверки показва стойност, която е винаги по-малка от размера на масива.
+				}
+				
+			}\newpage
+			\item\textbf{Сортиране.} Метод на пряката размяна (мехурчето). 
+			Съставете опорна схема (масивът и какво се прави с него, с означени имена на променливи и т.н.), 
+			Съставете схема на управление \textbf{със спиране по брой инверсии} (почти е готова в Moodle) и успоредно на нея – програма.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\lstinputlisting[language=c++]{../EVERYTHING/hw8/hw8/4/main.cpp}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=\textwidth]{../EVERYTHING/hw8/hw8/images/zad4}
+					
+					\hspace{1cm}
+				\end{figure}
+				
+			}\newpage
+			\item Отговорете писмено на всеки от следните въпроси .
+				\begin{enumerate}
+					\item Колко сравнения на стойности \textit{\textbf{най-много}} се правят при сортиране по метода на мехурчето. При какви входни данни стави това. Съставете схемата на преброяване и приложете подходяща формула, за да получите броя им.
+					\subsection{ОТГОВОР}
+					{\color{blue!50!black}
+						\textit{
+							Най-голям брой сравнения при разглеждане на алгоритъма, водещ се по метода на мехурчето имаме при масив, чиито елементи са наредени в низходящ (т.нар "обратен") ред. Тук сложността, т.е. времето за обхождане и пренареждане, изразяваме като $n^2$, имайки в предвид двата вложени цикъла необходими за реализирането на алгоритъма, всеки с отделна сложност n;
+						}
+						
+					}
+					\item Колко сравнения на стойности \textit{\textbf{най-малко}} се правят при сортиране по метода на мехурчето. При какви входни данни стави това.
+					\subsection{ОТГОВОР}
+					{\color{blue!50!black}
+						\textit{
+							Най-малък брой сравнения имаме при вече сортирани елементи на масива. Те са 0 на брой.
+							Сложността тук е n.
+						}
+						
+					}
+				\end{enumerate}\newpage
+			\item Направете на ръка как изглеждат теоретично двете графики (за най-добрия и най-лошия случай, посочени в задача 5) на зависимостта между големината на входа (броят на елементите в масива) и броя на сравненията. Означете на графиките за кой случай те се отнасят.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.8\textwidth]{../EVERYTHING/hw8/hw8/images/zad6}
+					\hspace{1cm}
+				\end{figure}
+				
+			}\newpage
+			\item Съставете програма, която реализира метода на мехурчето в \textbf{два варианта} – когато външният цикъл е в зависимост от броя на елементите в масива и когато външният цикъл е от друг тип - прекратява изпълнението си ако в поредното преминаване през неподредената част на масива не са направени размени. (Не се позволява да прекъсвате цикъла по брояч с насилствен изход по допълнително условие.) След като имате тези две процедури, използвайте кода, качен в Moodle (същия, който палзвахте за предишно домашно) за измерване времето на изпълнение, и измерете  колко време отнема на всяка от двете процедури да сортира един и същ случайно подреден масив с 1000, 2000, ... 50 000 елемента.\\\\
+			Това означава, че за всеки  размер трябва да измерите времето И за едната И за другата процедура за една и същ масив. Използвайте стойностите на тези времена, за да начертаете графика в EXCEL, която показва как нараства времето за изпълнение на двете процедури в зависимост от големината на входа.  На графиката трябва да е видно коя линия за коя процедура се отнася, както и да са надписани двете оси – за броя входни елементи на масива и за времето на изпълнение.\newpage
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.8\textwidth]{../EVERYTHING/hw8/hw8/images/zad71}
+					\caption{измерване от задача 7.1}
+					\hspace{1cm}
+				\end{figure}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.8\textwidth]{../EVERYTHING/hw8/hw8/images/zad72}
+					\caption{измерване от задача 7.2}
+					\hspace{1cm}
+				\end{figure}
+				
+			}
+		\end{enumerate}
+	\newpage
+
+	\section{ДОМАШНО 9}
+	\text{{\color{blue!50!black}\normalfont\footnotesize{
+				Краен срок: \textit{
+					събота, 4 май 2024, 00:00 AM  
+	}}}}\\
+	\text{{\color{green!50!black}\normalfont\footnotesize{
+				Предаденo на: \textit{
+					четвъртък, 2 май 2024, 08:29 AM
+	}}}}
+		\begin{enumerate}
+			\item Сортиране. Пряко вмъкване – съставете:
+			\begin{enumerate}
+				\item опорна схема (масивът и какво се прави с него, с означени имена на променливи и т.н.)
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.6\textwidth]{../EVERYTHING/hw9/hw9/schemes/zad1}
+						\hspace{1cm}
+					\end{figure}
+					
+				}
+			\end{enumerate}
+			\item Приложете схеми и примерен програмент текст за цикъла за търсене на място на вмъкване, за следните \textbf{два варианта, придружени съответно със схеми на управление и примерен програмен текст}:
+			\begin{enumerate}
+				\item Слизане към началото на масива \textbf{докато}: или се стигне до по-малък елемент, или се стигне до началото на масива.
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\lstinputlisting[language=c++]{../EVERYTHING/hw9/hw9/2/main.cpp}
+					\newpage
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.7\textwidth]{../EVERYTHING/hw9/hw9/schemes/insertionSort_findFirstMin}
+						
+						\hspace{1cm}
+					\end{figure}
+					
+				}\newpage
+				\item \textbf{Котва.} Реализирайте „слизането“ с котва. Това означава да поставяте вмъквания елемент „най-отдолу“ на масива, за да спестите от условието за край на „слизането“. (Индексите са цели числа – проверете дали отрицателните индекси са легитимни за езика, в който работите.)
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.7\textwidth,height=1.1\columnwidth]{../EVERYTHING/hw9/hw9/schemes/insertionSort_kotva}
+						
+						\hspace{1cm}
+					\end{figure}
+					
+				}\newpage
+			\end{enumerate}
+			\item Обяснете са думи как става освобождаването на място за вмъкване на вмъквания елемент, посочете с кои оператори от предложения програмен текст става това.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\textit{
+					Обхождаме масива докато не намерим минималният му елемент.
+					След като го открием отместваме всички останали елементи с една позиция, стартирайки от края на масива като стигаме до позицията на намереният минимум.
+					Презаписваме останалото място с намереният минимален елемент.
+				}
+				
+			}
+			\item Обяснете с думи \textbf{защо} този метод работи по-добре (с по-малка сравнения), ако във  входния масив няма инверсии.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\textit{
+					Не изисква извикването на отделна функция.\\
+					Работи в едно пространство.\\
+					Работи със сложност по-малка от тази при използването на инверсии.
+				}
+				
+			}
+			
+			\item Реализирайте на машина двата варианта на програмата, всеки от тях в два случая на входни данни – при нареден масив на входа и при обратно нареден масив на входа (общо четири реализации). Разпечатайте на изхода \textbf{броя сравнения} при двата вида входни масиви от 10000, 15000, 20000 и 30000 елемента.
+			\begin{enumerate}
+				\item Приложете снимки на екран на кода и на изхода от изпълнение.
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\lstinputlisting[language=c++]{../EVERYTHING/hw9/hw9/5/main.cpp}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.9\textwidth]{../EVERYTHING/hw9/hw9/schemes/zad5cut}
+						\caption{изход от изпълнение}
+						\hspace{1cm}
+					\end{figure}
+					
+				}\newpage
+				\item Съставете ОБЩА графика, на ексел, на база на големината на входа и броя сравнения за двата варианта, всеки за двата случая на нареденост на масивите.
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.7\textwidth]{../EVERYTHING/hw9/hw9/schemes/var1}
+						\caption{вариант 1}
+						\hspace{1cm}
+					\end{figure}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.7\textwidth]{../EVERYTHING/hw9/hw9/schemes/var2}
+						\caption{вариант 2}
+						\hspace{1cm}
+					\end{figure}
+					
+				}
+			\end{enumerate}	
+		\end{enumerate}
+	\newpage
+	\section{ДОМАШНО 10}
+	\text{{\color{blue!50!black}\normalfont\footnotesize{
+				Краен срок: \textit{
+					сряда, 8 май 2024, 00:00 AM  
+	}}}}\\
+	\text{{\color{red!50!black}\normalfont\footnotesize{
+				Предаденo на: \textit{
+					сряда, 8 май 2024, 12:43 PM - СЪС ЗАКЪСНЕНИЕ
+	}}}}
+		\begin{enumerate}
+			\item Попълнете на празните позиции в матрицата А последните три цифри от факултетния си номер, а в матрицата В – втората и третата цифра от вашето ЕГН.
+			\begin{figure}[H]
+				\centering				
+				\includegraphics[height=0.25\columnwidth]{tex/images/hw10_fig1}
+			\end{figure}
+			\begin{enumerate}
+				\item Изобразете графично, на тази схема матрицата $C = A * B$ , като празна таблица. Запишете с думи колко реда има С. Запишете колко стълба има С.
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\textit{
+						Матрицата има четири реда и два стълба.
+					}
+					
+				}
+				\item Отбележете на схемата как бележите индексите на редовете и на стълбовете на С. Запишете ги отделно с думи, например така: \textit{с индикс i бележа редовете на С, а с индекс j - стълбовете.}
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\textit{
+						С индекс ``$i$'' бележа редовете, а с ``$j$'' бележа стълбовете (колоните) на новообразуваната матрица C.
+					}
+					
+				}
+				\item Запишете как изчислявате всеки от елементите на С. Пресметнете ги. Например така:\\
+				$C_{22} = 3 * 3 + F * E + 1 * 1 + 7 * 7 = ... =$ \textit{Стойност}\\
+				и попълнете матрицата С със стойностите, които получавате
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\textit{
+						Изпълнено по-нататък в документа.
+					}
+					
+				}
+				\item Запишете управляващия оператор на цикъла, който обхожда по клетки всеки от редовете на С -  $For ()$. Запишете числови стойнони за границите на цикъпа, например  $l <= 369$.
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\textit{
+						Управляващият оператор, отговарящ за обхождането на всеки от редовете
+						в матрицата C е 'j'.}
+						
+					\textit{'j' е променливата на първият по степен вложен цикъл в серията от
+						цикли умножаващи двете матрици (А и В) в една (матрицата С).}
+					\begin{lstlisting}
+for(int i = 0; i < Ar; i++){ // main loop
+	for(int j = 0; j < Bc; j++){ // first nested loop
+		...
+	}
+	...
+}
+					\end{lstlisting}
+					\textit{Зависимостта при увеличаването стойността на 'j' се определя от
+						променливата "Bc", която пази в себе си стойността за броят колони в
+						матрицата В.}
+					
+				}
+				
+				\item Запишете управляващия оператор на цикъла, който обхожда всички редове на С. $For()$
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					\textit{
+						Управляващият оператор, отговарящ за обхождането на редовете на
+						матрицата C е 'i'.}
+					
+					\textit{'i' е променливата на най-външния цикъл от поредицата цикли умножаващи двете
+						матрици в една (C).}
+					\begin{lstlisting}
+for(int i = 0; i < Ar; i++){}
+					\end{lstlisting}
+					\textit{Зависимостта при увеличаването на 'i' се определя от "Ar", което обозначава
+						броят редове на матрицата 'A'.}
+					
+				}
+				\item Запишете вложени един в друт двата оператора за циклите, които обхождат всички клетки на С.
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					
+					\begin{lstlisting}
+for(int i = 0; i < Ar; i++){ // main loop
+	for(int j = 0; j < Bc; j++){ // first nested loop
+		...
+	}
+	...
+}
+					\end{lstlisting}
+					
+					
+				}
+				\item Запишете на схемата горе с какви индекси бележите редовете и стълбовете на А и на В.
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					
+					\textit{
+						A[i][d];
+						B[d][j];}
+						
+					\textit{'d' е променлива във втори вложен цикъл със зависимост от "Br",
+						отговаряща за броят редове на матрицата B.}
+					
+					
+				}
+				\item Запишете общия вид на Сумата – скаларно произведение, с която изчислихте всеки елемент на С.\\
+				$C_{ij} = \sum_{?}^{x} A_{? ?} * B_{? ?}$\\
+				\subsection{ОТГОВОР}
+				{\color{blue!50!black}
+					
+						$C_{ij} = \sum_{j=0}^{Bc-1} A_{i d} * B_{d j}$
+					
+				}
+				\item Запишете цикъла, който натрупва тази сума.\\
+				
+				$For()$\\
+				C[ ][ ] = C[ ][ ] + A[ ][ ] * B[ ][ ];\\
+				\subsection{ОТГОВОР (+ 10.3)}
+				{\color{blue!50!black}
+					
+					\begin{lstlisting}
+// head diagonal
+for(int i = 0; i < Ar; i++){
+	for(int j = 0; j < Bc; j++){
+		x=0; 
+		for(int d = 0; d < Br; d++){
+			x += A[i][d] * B[d][j];
+		}
+		C[i][j] = x;
+	}
+	
+}
+					\end{lstlisting}
+					
+				}
+			\end{enumerate}
+			\item Съставете цялата програма, като спазвате всички означения от опорната ви схема, запишете я тук и я пуснете с вашите входни данни. Приложете резпечатка на изхода.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\textit{
+					Изпълнено по-нататък в документа.
+				}
+				
+			}\newpage
+			\item Съставете
+				\begin{enumerate}
+					\item Опорна схема.
+					\item Алгоритъм
+					\item Програма за обхождане на всички елементи от неглавния диагонал на квадратна матрица.
+				\end{enumerate}
+				
+			\subsection{ОТГОВОР}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.7\textwidth]{../EVERYTHING/hw10/hw10/schemes/alg}
+				\caption{алгоритъм - главен диагонал}
+				\hspace{1cm}
+			\end{figure}
+			{\color{blue!50!black}
+				(+10.10)\textit{
+					Програмен код с алгоритъм водещ се по \textbf{главния} диагонал на матрицата.
+				}
+				\lstinputlisting[language=c++]{../EVERYTHING/hw10/hw10/1/multiplyingMatrices.cpp}
+				
+			}\newpage
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\textit{
+					Програмен код с алгоритъм водещ се по \textbf{обратния} диагонал на матрицата.
+				}
+				\lstinputlisting[language=c++]{../EVERYTHING/hw10/hw10/1/multiplyingMatrices - SecondDiagonal.cpp}
+			
+			}\newpage
+			
+		\end{enumerate}
+	\newpage
+	\section{ДОМАШНО 11}
+	\text{{\color{blue!50!black}\normalfont\footnotesize{
+				Краен срок: \textit{
+					вторник, 14 май 2024, 09:30 AM   
+	}}}}\\
+	\text{{\color{green!50!black}\normalfont\footnotesize{
+				Предаденo на: \textit{
+					петък, 10 май 2024, 16:14 PM
+	}}}}
+		\begin{enumerate}
+			\item В мудъл е поставен файл, съдържащ схема на постъпково изпълнение на метода на Гаус за решаване на СЛУ. Попълнете го докрай на ръка с посочените там входни данни за коефициентите.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				\textit{
+					Задачата е изпълнена по условие - на хартия.
+					Въпреки това, решението е преписано в следващото условие.
+				}
+				
+			}
+			\item Като ползвате схемите от лекционния материал към темата, съставете програмата за правия ход (тя е почти написана) за решаване на СЛУ по метода на Гаус и я пуснете с примера от вашите входни данни по задача 1. Приложете към домашното алгоритмичната схема на метода и програмата (успоредно на схемата). Приложете снимка на екрани от изпълнението – вход и изход. Напишете извода за получените резултати – сравнение на вашето решение от задача 1 и решението, получено при изпълнение на програмата.
+			\subsection{ОТГОВОР}
+			{\color{blue!50!black}
+				Първият ред се разделя на първия елемент в редицата (в случая на 2):\\
+				Целта е да получим единица в горния ляв ъгъл.\\
+				\begin{equation}
+					\begin{split}
+						\begin{bmatrix}[ccc|c]
+							2 & 0 & 1 & 134 \\
+							1 & -3 & 2 & 12 \\
+							3 & 6 & 5 & -36 \\
+						\end{bmatrix}\thicksim\\\\
+						\thicksim
+						\begin{bmatrix}[ccc|c]
+							1 & 0 & \frac{1}{2} & 67 \\
+							1 & -3 & 2 & 12 \\
+							3 & 6 & 5 & -36 \\
+						\end{bmatrix}\\\\\\
+					\end{split}
+				\end{equation}\\
+				Вече новият първи ред се изважда от втория, за да получим \textbf{новия втори ред}.\\
+				Това е част от \textbf{зануляването на стълба под единицата}:\\
+				\begin{equation}
+					\begin{split}
+						\begin{bmatrix}[ccc|c]
+							1 & 0 & \frac{1}{2} & 67 \\
+							1 & -3 & 2 & 12 \\
+						\end{bmatrix}\thicksim\\\\
+						\thicksim
+						\begin{bmatrix}[ccc|c]
+							0 & 3 & -\frac{3}{2} & 55 \\
+						\end{bmatrix}
+					\end{split}
+				\end{equation}\\
+				Повтаряме процедурата - ред първи се \textbf{умножава по 3} и изважда от третия, за да образуваме \textbf{новия трети ред:}
+				\begin{equation}
+					\begin{split}
+						\begin{bmatrix}[ccc|c]
+							3 & 0 & \frac{3}{2} & 201 \\
+							3 & 6 & 5 & -36 \\
+						\end{bmatrix}\thicksim\\\\
+						\thicksim
+						\begin{bmatrix}[ccc|c]
+							0 & -6 & -\frac{7}{2} & 237 \\
+						\end{bmatrix}
+					\end{split}
+				\end{equation}\\
+				Завършихме с матрицата:\\
+				\begin{equation}
+					\begin{bmatrix}[ccc|c]
+						1 & 0 & \frac{1}{2} & 67\\
+						0 & 3 & -\frac{3}{2} & 55\\
+						0 & -6 & -\frac{7}{2} & 237\\
+					\end{bmatrix}
+				\end{equation}\\
+				Преминаваме към обработване ред втори като се стремим се да получим единица на позиция $[1][1]$. За целта \textbf{ще разделим реда на 3.}\\
+				Получаваме:\\
+				\begin{equation}
+					\begin{bmatrix}[ccc|c]
+						1 & 0 & \frac{1}{2} & 67\\
+						0 & 1 & -\frac{1}{2} & 18,33\\
+						0 & -6 & -\frac{7}{2} & 237\\
+					\end{bmatrix}
+				\end{equation}\\
+				Новият втори ред \textbf{умножаваме по $-6$} и изваждаме от третия:\\
+				\begin{equation}
+					\begin{split}
+						\begin{bmatrix}[ccc|c]
+							0 & -6 & 3 & -109,98\\
+							0 & -6 & -\frac{7}{2} & 237\\
+						\end{bmatrix}\thicksim\\\\
+						\thicksim
+						\begin{bmatrix}[ccc|c]
+							0 & 0 & \frac{13}{2} & -346,98\\
+						\end{bmatrix}
+					\end{split}
+				\end{equation}\\
+				Матрицата с обработени първи и втори ред вече изглежда така:\\
+				\begin{equation}
+					\begin{bmatrix}[ccc|c]
+						1 & 0 & \frac{1}{2} & 67\\
+						0 & 1 & -\frac{1}{2} & 18,33\\
+						0 & 0 & \frac{13}{2} & -346,98\\
+					\end{bmatrix}
+				\end{equation}\\
+				Като за последно е нужно само да разделим последният елемент от матрицата на себе си, за да го превърнем в единица:\\
+				\begin{equation}
+					\begin{split}
+						\begin{bmatrix}[ccc|c]
+							1 & 0 & \frac{1}{2} & 67\\
+							0 & 1 & -\frac{1}{2} & 18,33\\
+							0 & 0 & \frac{13}{2} & -346,98\\
+						\end{bmatrix}\thicksim\\\\
+						\thicksim
+						\begin{bmatrix}[ccc|c]
+							1 & 0 & \frac{1}{2} & 67\\
+							0 & 1 & -\frac{1}{2} & 18,33\\
+							0 & 0 & 1 & \frac{-346,98}{\frac{13}{2}}\\
+						\end{bmatrix}
+					\end{split}
+				\end{equation}\\
+				Матрицата, обработена по метода на \textbf{Карл Фридрих Гаус}, придоби следната форма:\\
+				\begin{equation}
+					\begin{bmatrix}[ccc|c]
+						1 & 0 & \frac{1}{2} & 67\\
+						0 & 1 & -\frac{1}{2} & 18,33\\
+						0 & 0 & 1 & -53,38153846\\
+					\end{bmatrix}
+				\end{equation}\\
+				Закръгляйки до хилядни, $x_3$ става:
+				\begin{equation}
+					\begin{bmatrix}[ccc|c]
+						1 & 0 & \frac{1}{2} & 67\\
+						0 & 1 & -\frac{1}{2} & 18,33\\
+						0 & 0 & 1 & -53,3846\\
+					\end{bmatrix}
+				\end{equation}\\
+				\newpage
+				Намираме останалите неизвестни\\\\
+				Знаейки вече стойността на $x_3$, се ориентираме към намирането на тази на $x_2$:\\
+				\begin{equation}
+					 \begin{split}
+					 	1 * x_2 + \Bigl(\biggl(-\frac{1}{2}\biggr) * (-53,3846)\Bigr) = 18,33\Rightarrow\\
+					 	\Rightarrow1 * x_2 + \Bigl(\biggl(-\frac{1}{2}\biggr) * (-53,3846)\Bigr) - 18,33 = 0\Rightarrow\\
+					 	\Rightarrow1 * x_2 + 26,6923 - 18,33 = 0\Rightarrow\\
+					 	\Rightarrow1 * x_2 + 8,3623 = 0\Rightarrow\\
+					 	\Rightarrow1 * x_2 = -8,3623\Rightarrow\\
+					 	\Rightarrow x_2 = \frac{-8,3623}{1}\Rightarrow\\\\
+					 	 x_2 = -8,3623
+					 \end{split}
+				\end{equation}\\
+				Правим същото и за $x_1$:\\
+				\begin{equation}
+					\begin{split}
+						1 * x_1 + 0 * (-8,3623) + \frac{1}{2} * (-53,3846) = 67\Rightarrow\\\\
+						\Rightarrow1 * x_1 + 0 + (-26,6923) - 67 = 0\Rightarrow\\\\
+						\Rightarrow1 * x_1 + (-26,6923) - 67 = 0\Rightarrow\\\\
+						\Rightarrow1 * x_1 - 26,6923 - 67 = 0\Rightarrow\\\\
+						\Rightarrow1 * x_1 - 93,6923 = 0\Rightarrow\\\\
+						\Rightarrow1 * x_1 = 93,6923\Rightarrow\\\\
+						\Rightarrow x_1 = \frac{93,6923}{1}\Rightarrow\\\\
+						x_1 = 93,6923
+					\end{split}
+				\end{equation}\newpage
+				Проверка\\
+				\begin{equation}
+					\begin{split}
+						2 * x_1 + 0 * x_2 + 1 * x_3 =? 134\\
+						2 * 93,6923 + 0 * (-8,3623) + 1 * (-53,3846) =? 134\\
+						2 * 93,6923 + 0 + (-53,3846) =? 134\\
+						2 * 93,6923 - 53,3846 =? 134\\\\
+						187,3846 - 53,3846 = 134
+					\end{split}
+				\end{equation}\\
+				\begin{equation}
+					\begin{split}
+						1 * x_1 + \bigl((-3) * x_2\bigr) + 2 * x_3 =? 12\\
+						1 * 93,6923 + \bigl((-3) * (-8,3623)\bigr) + 2 * (-53,3846) =? 12\\
+						93,6923 + 25,0869 - 106,7692 =? 12\\
+						118,7792 - 106,7692 =? 12\\\\
+						12,01\approx12
+					\end{split}
+				\end{equation}\\
+				\begin{equation}
+					\begin{split}
+						3 * x_1 + 6 * x_2 + 5 * x_3 =? -36\\
+						3 * 93,6923 + 6 * (-8,3623) + 5 * (-53,3846) =? -36\\
+						281,0769 + (-50,1738) + (-266,923) =? -36\\
+						281,0769 - 50,1738 - 266,923 =? -36\\
+						230,9031 - 266,923 =? -36\\\\
+						-36,0199\approx-36
+					\end{split}
+				\end{equation}\\
+				
+				\newpage
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.8\textwidth]{./EVERYTHING/hw11/hw11/images/C. F. Gauss Matrix elimination algorithm.drawio}
+					\caption{опорна схема на използвания алгоритъм}
+					\hspace{1cm}
+				\end{figure}\newpage
+				\lstinputlisting[language=c++]{../EVERYTHING/hw11/hw11/solution.cpp}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=\textwidth]{./EVERYTHING/hw11/hw11/images/code - output}
+					\caption{изход от изпълнение}
+					\hspace{1cm}
+				\end{figure}
+				\newpage
+				\textit{Извод:}
+				\textit{Алгоритъмът работи по предназначение, изчислявайки крайните стойности с които можем да намерим търсените $x_1$, $x_2$ и $x_3$.}
+				\textit{Те съответстват на проведените от мен изчисления спрямо таблицата, включена в заданието от домашната работа.}
+			}
+		\end{enumerate}
+\end{document}
+
