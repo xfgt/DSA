@@ -1,4 +1,4 @@
-#include "../algorithms.h"
+#include "../header/algorithms.h"
 
 #include <iomanip>
 #include <cstdlib>

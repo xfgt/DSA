@@ -1,21 +1,12 @@
-#include <iostream>
-#include <iomanip>
-#include <cstdlib>
-#include <ctime>
+
+#include "header/algorithms.h"
+#include "header/serviceFunctions.h"
+#include "header/measureTime.h"
 
 
-
-// algorithms
-
-#include "../AlgorithmsDir/algorithms.h"
-
+const unsigned GSIZE = 200000;
 
 // arr on heap
-const unsigned GSIZE = 200000;
-unsigned sTime;
-
-void startTimer() { sTime = clock(); }
-void stopTimer() { std::cout << std::setprecision(7) << (float)(clock() - sTime) / CLOCKS_PER_SEC << "\t"; }
 
 int main(){
 	srand(time(NULL));

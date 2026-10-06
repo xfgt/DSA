@@ -1,4 +1,3 @@
-#if 1
 
 #include <iostream>
 
@@ -75,4 +74,3 @@ int main() {
 
 }
 
-#endif

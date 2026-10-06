@@ -1,8 +1,8 @@
 
 #include <iostream>
-#include <iomanip>
-#include <cstdlib>
-#include <ctime>
+
+
+#include "../header/measureTime.h"
 
 static int d{};
 unsigned sTime;

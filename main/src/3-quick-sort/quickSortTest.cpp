@@ -1,5 +1,5 @@
 // main
-#include "../algorithms.h"
+#include "../header/algorithms.h"
 #include <time.h>
 
 

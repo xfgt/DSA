@@ -1,4 +1,4 @@
-#if 0
+
 
 #include <iostream>
 #include <cstdlib>
@@ -92,13 +92,13 @@ void result() {
 int main() {
 
 	
-#if 0
+// if 0
 	while (true) {
 		initArrayRands(a, N, 0, N);
 		result();
 		this_thread::sleep_for(chrono::seconds(1));
 	}
-#endif
+// endif
 
 
 	for (int i = 0; i < 3; i++) { 
@@ -113,4 +113,3 @@ int main() {
 
 
 
-#endif

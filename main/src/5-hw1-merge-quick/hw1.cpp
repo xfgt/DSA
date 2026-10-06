@@ -1,5 +1,5 @@
 
-#include "../algorithms.h"
+#include "../header/algorithms.h"
 
 int main() {
     const unsigned sz = 7;
